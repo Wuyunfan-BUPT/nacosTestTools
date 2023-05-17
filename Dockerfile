@@ -22,4 +22,4 @@ COPY entry.sh /entry.sh
 RUN chmod -x /entry.sh
 
 # Code file to execute when the docker container starts up (`entry.sh`)
-ENTRYPOINT ["/entry.sh"]
+ENTRYPOINT ["/bin/bash", "/entry.sh"]
