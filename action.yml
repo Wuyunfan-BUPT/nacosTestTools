@@ -1,0 +1,48 @@
+# action.yml
+name: 'Cloud Native CI Action'
+description: ''
+inputs:
+  action: # id of input
+    description: 'action'
+    required: true
+    default: ''
+  ask-config:  # id of input
+    description: 'ask config'
+    required: true
+    default: ''
+  test-version: # id of input
+    description: 'test version'
+    required: true
+    default: ''
+  chart-git: # id of input
+    description: 'chart git'
+    required: false
+    default: ''
+  chart-branch: # id of input
+    description: 'chart branch'
+    required: false
+    default: ''
+  chart-path: # id of input
+    description: 'chart path'
+    required: false
+    default: './'
+  job-id: # id of input
+    description: 'job id'
+    required: true
+    default: ''
+  helm-values: # id of input
+    description: 'helm values'
+    required: true
+    default: ''
+runs:
+  using: 'docker'
+  image: 'Dockerfile'
+  args:
+    - ${{ inputs.action }}
+    - ${{ inputs.ask-config }}
+    - ${{ inputs.test-version }}
+    - ${{ inputs.chart-git }}
+    - ${{ inputs.chart-branch }}
+    - ${{ inputs.chart-path }}
+    - ${{ inputs.job-id }}
+    - ${{ inputs.helm-values }}
