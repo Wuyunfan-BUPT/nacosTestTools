@@ -1,3 +1,5 @@
+#!/bin/sh -l
+
 ACTION=$1
 ASK_CONFIG=$2
 VERSION=$3
