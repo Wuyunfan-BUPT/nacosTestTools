@@ -69,6 +69,7 @@ ${YAML_VALUES}'
 
 echo -e "${VELA_APP_TEMPLATE}" > ./velaapp.yaml
 sed -i '1d' ./velaapp.yaml
+cat ./velaapp.yaml
 
 env_uuid=${REPO_NAME}-${GITHUB_RUN_ID}-${JOB_INDEX}
 
