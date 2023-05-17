@@ -25,5 +25,5 @@ jobs:
     steps:
       - name: Deploy nacos
         run: |
-            number=[${{ github.run_number }}+30000]
+            number=$(expr ${{ github.run_number }} + 30000)
             echo ${{ matrix.version }} + ${number}
