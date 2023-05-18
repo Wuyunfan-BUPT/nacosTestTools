@@ -46,6 +46,7 @@ kube_config=$(echo "${ASK_CONFIG}" | base64 -d)
 #kube_config=$(echo "${ASK_CONFIG}")
 echo "${kube_config}" > ${HOME}/.kube/config
 export KUBECONFIG="${HOME}/.kube/config"
+echo `file ${HOME}/.kube/config`
 
 VELA_APP_TEMPLATE='
 apiVersion: core.oam.dev/v1beta1
