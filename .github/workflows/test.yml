@@ -23,9 +23,9 @@ jobs:
         version: ["8", "9"]
         mode: ["cluster", "standlone"]
     steps:
-      - name: test   ${{ ${{ github.run_number }} + 1) }}
+      - name: test ${{ ${{ github.run_number }} + 1 }}
         run: |
-          echo    ${{ ${{ github.run_number }} - 1) }}
+          echo    ${{ ${{ github.run_number }} - 1 }}
 #          echo $(( ${{ add(${{ mod(${{ add($(( 4 * ${{ add(${{ github.run_number }}, 1) }} )), ${{ strategy.job-index }}) }}, 30000) }}, 30000) }} ))
       - name: run_number
         run: |
