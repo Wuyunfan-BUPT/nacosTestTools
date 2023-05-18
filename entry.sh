@@ -47,6 +47,8 @@ kube_config=$(echo "${ASK_CONFIG}"==== | fold -w 4 | sed '$ d' | tr -d '\n' | ba
 echo "${kube_config}" > ${HOME}/.kube/config
 export KUBECONFIG="${HOME}/.kube/config"
 
+apt-get install file
+cat "${HOME}/.kube/config"
 echo `file ${HOME}/.kube/config`
 
 VELA_APP_TEMPLATE='
