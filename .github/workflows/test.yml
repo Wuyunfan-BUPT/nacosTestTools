@@ -28,7 +28,7 @@ jobs:
       - name: set port
         run: |
             echo "::set-env name=PORT::$(expr $(expr $(expr $(expr 4 * $(expr ${{ github.run_number }} - 1)) + ${{ strategy.job-index }}) % 30000) + 30000)"
-      - name: print ${{ PORT }}
+      - name: print ${{ env.PORT }}
         run: |
           echo ${PORT}
       - name: run_number
