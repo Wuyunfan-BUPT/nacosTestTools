@@ -26,7 +26,7 @@ jobs:
       - name: test   $(( add(${{ github.run_number }}, 1), 2 ))
         run: |
           echo  $((add(${{ github.run_number }}, 1) ))
-          echo $(( ${{ add(${{ mod(${{ add($(( 4 * ${{ add(${{ github.run_number }}, 1) }} )), ${{ strategy.job-index }}) }}, 30000) }}, 30000) }} ))
+#          echo $(( ${{ add(${{ mod(${{ add($(( 4 * ${{ add(${{ github.run_number }}, 1) }} )), ${{ strategy.job-index }}) }}, 30000) }}, 30000) }} ))
       - name: run_number
         run: |
             number=$(expr ${{ github.run_number }} + 30000)
