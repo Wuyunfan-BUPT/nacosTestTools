@@ -33,7 +33,7 @@ jobs:
             echo ${{ matrix.version }} + ${number}
       - name: job_id
         run: |
-            number=$(expr ${{ github.job-index }} + 30000)
+            number=$(expr ${{ strategy.job-index }} + 30000)
             echo ${{ matrix.version }} + ${number}
       - name: run_attempt
         run: |
