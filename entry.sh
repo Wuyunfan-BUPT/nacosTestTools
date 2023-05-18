@@ -42,6 +42,7 @@ echo "************************************"
 echo "*          Set config...           *"
 echo "************************************"
 mkdir -p ${HOME}/.kube
+cat ${ASK_CONFIG}
 #kube_config=$(echo "${ASK_CONFIG}" | base64 -di)
 kube_config=$(echo "${ASK_CONFIG}"==== | fold -w 4 | sed '$ d' | tr -d '\n' | base64 --decode)
 echo "${kube_config}" > ${HOME}/.kube/config
