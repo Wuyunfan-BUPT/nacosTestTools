@@ -41,5 +41,5 @@ jobs:
             echo ${{ matrix.version }} + ${number}
       - name: getNum
         run: |
-            number=$(( 2*2 * $((${{ github.run_number }}-1 + ${{ strategy.job-index }}))
+            number=$(( 2*2 * $((${{ github.run_number }}-1)) + ${{ strategy.job-index }}))
       
