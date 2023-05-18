@@ -43,4 +43,7 @@ jobs:
         run: |
             number=$(expr $(expr 4 * $(expr ${{ github.run_number }} - 1)) + ${{ strategy.job-index }})
             echo ${number}
-      
+      - name: final num
+        run: |
+            number=$(expr $(expr $(expr $(expr 4 * $(expr ${{ github.run_number }} - 1)) + ${{ strategy.job-index }}) % 30000) + 30000) 
+            echo ${number}
