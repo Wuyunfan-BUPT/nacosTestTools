@@ -32,7 +32,7 @@ jobs:
       - name: print port
         run: |
           echo ${port}
-          echo ${outputs.port}
+#          echo ${outputs.port}
       - name: run_number
         run: |
             number=$(expr ${{ github.run_number }} + 30000)
