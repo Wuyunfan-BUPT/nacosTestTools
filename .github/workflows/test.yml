@@ -23,7 +23,20 @@ jobs:
         version: ["8", "9"]
         mode: ["cluster", "standlone"]
     steps:
-      - name: Deploy nacos
+      - name: run_number
         run: |
             number=$(expr ${{ github.run_number }} + 30000)
             echo ${{ matrix.version }} + ${number}
+      - name: run_id
+        run: |
+            number=$(expr ${{ github.run_id }} + 30000)
+            echo ${{ matrix.version }} + ${number}
+      - name: job_id
+        run: |
+            number=$(expr ${{ github.job_id }} + 30000)
+            echo ${{ matrix.version }} + ${number}
+      - name: run_attempt
+        run: |
+            number=$(expr ${{ github.run_attempt }} + 30000)
+            echo ${{ matrix.version }} + ${number}
+      
