@@ -22,14 +22,15 @@ jobs:
       matrix:
         version: ["8", "9"]
         mode: ["cluster", "standlone"]
-    outputs: ${{ steps.getport.outputs.port }}
+    outputs: 
+      port: ${{ steps.getport.outputs.port }}
     steps:
       - id: getport
         run: |
           echo  "port=$((${{ github.run_number }}- 1))" >> "$GITHUB_OUTPUT"
       - name: print port
         run: |
-          echo  ${{ steps.getport.outputs.port }}
+          echo  ${{ port }}
       - name: run_number
         run: |
             number=$(expr ${{ github.run_number }} + 30000)
