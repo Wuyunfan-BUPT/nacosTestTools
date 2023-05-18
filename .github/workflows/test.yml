@@ -12,6 +12,7 @@ concurrency:
 
 env:
   DOCKER_REPO: wuyfeedocker/nacos-ci
+  PORT: 3000
 
 jobs:
   dist-tar:
@@ -25,13 +26,17 @@ jobs:
     outputs: 
       port: ${{ steps.getport.outputs.port }}
     steps:
+      - name: set port
+        run: |
+            ${PORT}=$(expr $(expr $(expr $(expr 4 * $(expr ${{ github.run_number }} - 1)) + ${{ strategy.job-index }}) % 30000) + 30000) 
+            echo ${number}
       - id: getport
         run: |
           port=$((${{ github.run_number }}- 1))
           echo "port=$((${{ github.run_number }}- 1))" >> "$GITHUB_OUTPUT"
       - name: print port
         run: |
-          echo ${port}
+          echo ${PORT}
 #          echo ${outputs.port}
       - name: run_number
         run: |
