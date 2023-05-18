@@ -42,4 +42,5 @@ jobs:
       - name: getNum
         run: |
             number=$(expr $(expr 4*$(expr ${{ github.run_number }}-1)+${{ strategy.job-index }}))
+            echo ${number}
       
