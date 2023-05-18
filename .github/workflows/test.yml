@@ -12,6 +12,7 @@ concurrency:
 
 env:
   DOCKER_REPO: wuyfeedocker/nacos-ci
+  ACTIONS_ALLOW_UNSECURE_COMMANDS: true
   PORT: 3000
 
 jobs:
