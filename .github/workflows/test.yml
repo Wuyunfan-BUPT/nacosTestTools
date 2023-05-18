@@ -28,8 +28,9 @@ jobs:
     steps:
       - name: set port
         run: |
-            ${PORT}=$(expr $(expr $(expr $(expr 4 * $(expr ${{ github.run_number }} - 1)) + ${{ strategy.job-index }}) % 30000) + 30000) 
-            echo ${number}
+            echo "::set-env name=PORT::$(expr $(expr $(expr $(expr 4 * $(expr ${{ github.run_number }} - 1)) + ${{ strategy.job-index }}) % 30000) + 30000)"
+#            ${PORT}=$(expr $(expr $(expr $(expr 4 * $(expr ${{ github.run_number }} - 1)) + ${{ strategy.job-index }}) % 30000) + 30000) 
+            #echo ${number}
       - id: getport
         run: |
           port=$((${{ github.run_number }}- 1))
