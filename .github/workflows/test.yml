@@ -27,10 +27,12 @@ jobs:
     steps:
       - id: getport
         run: |
-          echo  "port=$((${{ github.run_number }}- 1))" >> "$GITHUB_OUTPUT"
+          port=$((${{ github.run_number }}- 1))
+          echo "port=$((${{ github.run_number }}- 1))" >> "$GITHUB_OUTPUT"
       - name: print port
         run: |
-          echo  ${{ outputs.port }}
+          echo ${port}
+          echo ${outputs.port}
       - name: run_number
         run: |
             number=$(expr ${{ github.run_number }} + 30000)
