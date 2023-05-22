@@ -99,7 +99,7 @@ if [ ${ACTION} == "deploy" ]; then
   let count=0
   while [ -z "$res" ]
   do
-      if [ $count -gt 120 ]; then
+      if [ $count -gt 160 ]; then
         echo "env ${app} deploy timeout..."
         exit 1
       fi
