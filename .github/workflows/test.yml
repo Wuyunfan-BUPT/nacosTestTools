@@ -32,13 +32,13 @@ jobs:
         env:
           count: 3
         run: |
-          rcho ${{ env.count }}
+          echo ${{ env.count }}
       - name: set count1
         if: ${{ matrix.mode == 'standlone' }}
         env:
           count: 3
         run: |
-          rcho ${{ env.count }}
+          echo ${{ env.count }}
       - name: print mode
         run: |
             echo ${{ matrix.mode }}
