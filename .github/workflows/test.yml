@@ -71,3 +71,4 @@ jobs:
         run: |
             number=$(expr $(expr $(expr $(expr 4 * $(expr ${{ github.run_number }} - 1)) + ${{ strategy.job-index }}) % 30000) + 30000) 
             echo ${number}
+            echo ${{ env.count }}
