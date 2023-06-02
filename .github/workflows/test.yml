@@ -28,20 +28,20 @@ jobs:
         mode: ["cluster", "standlone"]
     steps:
       - name: set count
-        if: ${{ strategy.mode == "cluster" }}
+        if: ${{ matrix.mode == 'cluster' }}
         env:
           count: 3
         run: |
           rcho ${{ env.count }}
       - name: set count1
-        if: ${{ strategy.mode == "standlone" }}
+        if: ${{ matrix.mode == 'standlone' }}
         env:
           count: 3
         run: |
           rcho ${{ env.count }}
       - name: print mode
         run: |
-            echo ${{ strategy.mode }}
+            echo ${{ matrix.mode }}
       - name: set port
         run: |
             echo "::set-env name=PORT::$(expr $(expr $(expr $(expr 4 * $(expr ${{ github.run_number }} - 1)) + ${{ strategy.job-index }}) % 30000) + 30000)"
