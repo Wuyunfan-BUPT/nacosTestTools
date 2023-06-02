@@ -41,6 +41,9 @@ jobs:
       - name: print mode
         run: |
             echo ${{ matrix.mode }}
+      - name: print count
+        run: |
+            echo ${{ env.count }}
       - name: set port
         run: |
             echo "::set-env name=PORT::$(expr $(expr $(expr $(expr 4 * $(expr ${{ github.run_number }} - 1)) + ${{ strategy.job-index }}) % 30000) + 30000)"
