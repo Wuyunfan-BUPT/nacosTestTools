@@ -13,7 +13,6 @@ concurrency:
 env:
   DOCKER_REPO: wuyfeedocker/nacos-ci
   ACTIONS_ALLOW_UNSECURE_COMMANDS: true
-  PORT: 3000
 
 jobs:
   dist-tar:
@@ -22,6 +21,7 @@ jobs:
     timeout-minutes: 60
     env:
       count: 3
+      PORT: 3000
     strategy:
       matrix:
         version: ["8", "9"]
