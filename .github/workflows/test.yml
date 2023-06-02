@@ -20,11 +20,24 @@ jobs:
     name: Deploy nacos-server
     runs-on: ubuntu-latest
     timeout-minutes: 60
+    env:
+      count: 3
     strategy:
       matrix:
         version: ["8", "9"]
         mode: ["cluster", "standlone"]
     steps:
+      - name: set count
+        if: ${{ strategy.mode == "cluster" }}
+        env:
+          count: 3
+      - name: set count1
+        if: ${{ strategy.mode == "standlone" }}
+        env:
+          count: 3
+      - name: print count
+        run: |
+            echo ${{ env.count }}
       - name: set port
         run: |
             echo "::set-env name=PORT::$(expr $(expr $(expr $(expr 4 * $(expr ${{ github.run_number }} - 1)) + ${{ strategy.job-index }}) % 30000) + 30000)"
