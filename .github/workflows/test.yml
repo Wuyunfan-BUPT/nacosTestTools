@@ -31,13 +31,17 @@ jobs:
         if: ${{ strategy.mode == "cluster" }}
         env:
           count: 3
+        run: |
+          rcho ${{ env.count }}
       - name: set count1
         if: ${{ strategy.mode == "standlone" }}
         env:
           count: 3
-      - name: print count
         run: |
-            echo ${{ env.count }}
+          rcho ${{ env.count }}
+      - name: print mode
+        run: |
+            echo ${{ strategy.mode }}
       - name: set port
         run: |
             echo "::set-env name=PORT::$(expr $(expr $(expr $(expr 4 * $(expr ${{ github.run_number }} - 1)) + ${{ strategy.job-index }}) % 30000) + 30000)"
